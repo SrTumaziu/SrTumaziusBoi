@@ -1,0 +1,14 @@
+image: node:latest
+
+cache:
+  paths:
+  - node_modules/
+
+job:
+  script:
+  - apt-get update -qy
+  - apt-get install -y ruby ruby-dev rubygems-integration
+  - npm install
+  - gem install --no-rdoc --no-ri dpl
+  - dpl --provider=heroku --app=srtumaziusboibot --api-key=d769a35c-739c-456c-b7b7-0acf19e0a391
+# change app name and api key if necessary
